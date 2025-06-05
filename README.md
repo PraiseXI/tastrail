@@ -1,50 +1,96 @@
-# Welcome to your Expo app 👋
+# RatePlate Template
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A template for building mobile and web applications using Expo, Supabase, PowerSync, and Clerk authentication. This template provides a solid foundation for creating offline-first applications with real-time synchronization capabilities.
 
-## Get started
+## Tech Stack
 
-1. Install dependencies
+- **Expo (React Native)**: Cross-platform mobile development
+- **Supabase**: PostgreSQL database and backend services
+- **PowerSync**: Offline-first data synchronization
+- **Clerk**: Authentication and user management
 
+## Environment Setup
+
+Create a `.env` file in the root directory with the following variables:
+
+```bash
+# Clerk Authentication
+EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+
+# Supabase Configuration
+EXPO_PUBLIC_SUPABASE_URL=your_supabase_project_url
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# PowerSync Configuration
+EXPO_PUBLIC_POWERSYNC_URL=your_powersync_url
+EXPO_PUBLIC_POWERSYNC_TOKEN=your_powersync_token
+```
+
+### How to get these values:
+
+1. **Clerk Keys**:
+   - Sign up at [clerk.com](https://clerk.com)
+   - Create a new application
+   - Get your publishable key from the Clerk dashboard
+
+2. **Supabase Keys**:
+   - Create a project at [supabase.com](https://supabase.com)
+   - Go to Project Settings > API
+   - Copy the URL and anon key
+
+3. **PowerSync Configuration**:
+   - Set up PowerSync in your Supabase project
+   - Get the sync URL and token from your PowerSync dashboard
+
+## Getting Started
+
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Set up your environment variables as described above
 
+3. Start the development server:
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## Project Structure
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+app/
+├── _layout.tsx        # Root layout with authentication setup
+├── (tabs)/           # Tab-based navigation
+├── components/       # Reusable components
+├── hooks/           # Custom hooks
+├── lib/             # Utility functions and configurations
+└── store/           # PowerSync store configuration
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Features
 
-## Learn more
+- Offline-first architecture with PowerSync
+- Real-time data synchronization
+- Secure authentication with Clerk
+- Type-safe database operations
+- Cross-platform compatibility
 
-To learn more about developing your project with Expo, look at the following resources:
+## Development Guidelines
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Follow SOLID principles
+- Maintain clear logging for debugging
+- Keep the codebase modular and maintainable
+- Use the PowerSync local store as the primary data source
+- Ensure proper synchronization between local and remote databases
 
-## Join the community
+## Learn More
 
-Join our community of developers creating universal apps.
+- [Expo Documentation](https://docs.expo.dev/)
+- [Supabase Documentation](https://supabase.com/docs)
+- [PowerSync Documentation](https://docs.powersync.com)
+- [Clerk Documentation](https://clerk.com/docs)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## License
+
+MIT
