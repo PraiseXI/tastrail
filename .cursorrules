@@ -1,0 +1,73 @@
+## **Project Overview**
+RatePlate is a mobile and web application designed for food enthusiasts to rate individual dishes at restaurants, track their dining experiences, and share these experiences with friends or on social media. The application emphasizes detailed feedback on dishes rather than general restaurant ratings.
+
+### Tech stack:
+- Expo (react native)
+- Supabase (postgresdb)
+- Powersync (offline to online syncing)
+- Clerk (authentication)
+
+## **General Rules**
+- work with the powersync local store as a local first application and make sure it syncs
+
+- keep to the existing sync and store files and only change if necessary and justify wy the change
+
+- follow the S principles from the SOLID programming principles
+
+-  dont abstract too much, make it clear and understandable keeping clear logging, 
+
+- break down and explain the changes and why
+
+- if new files are needed that are not there tell me exactly where the file should go, including folders and subfolders, do this for all files
+
+---
+
+## **Environment Variables**
+
+- tell me if i need to create environment variables, check if they already exist
+
+## db schema
+| table_name         | column_name      | data_type                   | is_nullable |
+| ------------------ | ---------------- | --------------------------- | ----------- |
+| dishes             | dish_id          | uuid                        | NO          |
+| dishes             | restaurant_id    | uuid                        | YES         |
+| dishes             | name             | text                        | YES         |
+| dishes             | description      | text                        | YES         |
+| dishes             | price            | numeric                     | YES         |
+| dishes             | created_at       | timestamp without time zone | YES         |
+| dishes             | created_by       | uuid                        | YES         |
+| restaurants        | restaurant_id    | uuid                        | NO          |
+| restaurants        | name             | text                        | YES         |
+| restaurants        | cuisine_type     | text                        | YES         |
+| restaurants        | location         | text                        | YES         |
+| restaurants        | contact_info     | text                        | YES         |
+| restaurants        | website          | text                        | YES         |
+| restaurants        | is_official      | boolean                     | YES         |
+| restaurants        | created_at       | timestamp without time zone | YES         |
+| users              | user_id          | uuid                        | NO          |
+| users              | username         | text                        | YES         |
+| users              | profile_picture  | text                        | YES         |
+| users              | is_private       | boolean                     | YES         |
+| users              | created_at       | timestamp without time zone | YES         |
+| visit_dishes       | id               | uuid                        | NO          |
+| visit_dishes       | visit_id         | uuid                        | YES         |
+| visit_dishes       | user_id          | uuid                        | YES         |
+| visit_dishes       | dish_id          | uuid                        | YES         |
+| visit_dishes       | rating           | integer                     | YES         |
+| visit_dishes       | sweet            | integer                     | YES         |
+| visit_dishes       | sour             | integer                     | YES         |
+| visit_dishes       | spice_level      | integer                     | YES         |
+| visit_dishes       | texture          | text                        | YES         |
+| visit_dishes       | comment          | text                        | YES         |
+| visit_dishes       | created_at       | timestamp without time zone | YES         |
+| visit_dishes       | last_modified_at | timestamp without time zone | YES         |
+| visit_participants | visit_id         | uuid                        | NO          |
+| visit_participants | user_id          | uuid                        | NO          |
+| visit_participants | status           | text                        | YES         |
+| visit_participants | can_invite       | boolean                     | YES         |
+| visits             | visit_id         | uuid                        | NO          |
+| visits             | owner_user_id    | uuid                        | YES         |
+| visits             | restaurant_id    | uuid                        | YES         |
+| visits             | visit_date       | date                        | YES         |
+| visits             | created_at       | timestamp without time zone | YES         |
+| visits             | last_modified_at | timestamp without time zone | YES         |
